@@ -1,0 +1,29 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sentiment Analysis</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'sentiment/css/styles.css' %}">
+</head>
+<body>
+    <div class="container">
+        <span style="font-size: 24px;">🧡 💛 💚 💙 💜 🖤</span> <!-- Search icon as emoji -->
+        <h1>Sentiment Analysis</h1>
+        <p>Enter your text below and let AI analyze its sentiment!</p>
+        
+        <form method="post">
+            {% csrf_token %}
+            <textarea name="text" placeholder="Type something..." required></textarea>
+            <button type="submit">Analyze Sentiment</button>
+        </form>
+
+        {% if sentiment_result %}
+            <div class="result-box">
+                <p>Sentiment: <strong>{{ sentiment_result }}</strong></p>
+            </div>
+        {% endif %}
+    </div>
+</body>
+</html>
