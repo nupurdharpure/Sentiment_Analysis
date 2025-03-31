@@ -24,9 +24,10 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-+))fo1%m%(75p(3-6%r@h!ktj^p_38t*^4$$m0loh0muq2wf#8'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+# Allow all Render domains
+ALLOWED_HOSTS = ['localhost', '127.0.0.1', '.onrender.com']
 
 
 # Application definition
@@ -39,6 +40,12 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'sentiment',
+]
+
+# Add CSRF trusted origins for Render domains
+CSRF_TRUSTED_ORIGINS = [
+    'https://portfolio-mjgi.onrender.com',
+    'https://*.onrender.com',
 ]
 
 MIDDLEWARE = [
