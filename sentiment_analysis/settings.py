@@ -43,10 +43,10 @@ INSTALLED_APPS = [
 ]
 
 # Add CSRF trusted origins for Render domains
-CSRF_TRUSTED_ORIGINS = [
-    'https://portfolio-mjgi.onrender.com',
-    'https://*.onrender.com',
-]
+# CSRF_TRUSTED_ORIGINS = [
+#     'https://portfolio-mjgi.onrender.com',
+#     'https://*.onrender.com',
+# ]
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -124,11 +124,14 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.1/howto/static-files/
 
-STATIC_URL = '/static/'
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
-STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'static')
+STATIC_URL = '/static/'  
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')  # Required for collectstatic  
+STATICFILES_DIRS = [  
+    os.path.join(BASE_DIR, 'static'),  # Ensure this directory exists in your project  
 ]
+
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
