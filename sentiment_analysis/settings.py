@@ -43,10 +43,10 @@ INSTALLED_APPS = [
 ]
 
 # Add CSRF trusted origins for Render domains
-# CSRF_TRUSTED_ORIGINS = [
-#     'https://portfolio-mjgi.onrender.com',
-#     'https://*.onrender.com',
-# ]
+CSRF_TRUSTED_ORIGINS = [
+    'https://sentiment-analysis-system-u8w0.onrender.com',
+    'https://*.onrender.com',
+]
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
